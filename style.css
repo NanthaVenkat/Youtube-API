@@ -1,25 +1,91 @@
+/* montserrat google font  */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500;900&family=Poppins:wght@200;500&display=swap');
 
-.container {
-    width: 85%;
-    text-align: center;
+
+:root {
+    --plrimary-color: #ea580c;
+    --secondary-color: #020617;
+    --color-white: #ffffff;
+    --color-2: #fdba74;
+}
+
+body {
+   background-image: linear-gradient(#334155, #0f172a 100%);
+   background-repeat: no-repeat;
+}
+
+* {
+    font-family: "montserrat", sans-serif;
+}
+
+ td, th {
+    font-weight: 400;
+ }
+
+ #videoLink::placeholder {
+    font-size: 12px;
+    color: #020617;
+ }
+
+ .table-sec {
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
+ }
 
-table {
-    display: inline-block;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border-collapse: collapse;
-}
+ #video-link-table {
+    margin-left: auto;
+    margin-right: auto;
+ }
 
-table th, table td{
-    padding: 10px;
-    width: max-content;
-    border: 1px solid #000;
-}
+ #video-link-table th {
+    color: var(--plrimary-color);
+    font-weight: 400;
+ }
 
-#videoInfo {
-    color: brown;
-}
+ #video-link-table td {
+    font-weight: 300;
+ }
+
+ #video-link-table tr:nth-child(even) {
+    background-color: rgb(71 85 105);
+ }
+
+ #video-link-table td:nth-child(2) {
+    text-align: start;
+ }
+
+ #video-link-table td, #video-link-table th {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--plrimary-color);
+    text-align: center;
+ }
+
+ .videoCheckbox {
+   appearance: none;
+   -webkit-appearance: none;
+   background-color: #d5d5d5;
+   height: 1em;
+   width: 1em;
+   outline: none;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: auto;
+ }
+
+ .videoCheckbox:after {
+   content: "\2713";
+   display: none;
+ }
+
+ .videoCheckbox:checked {
+   background-color: var(--plrimary-color);
+ }
+
+ .videoCheckbox:checked::after {
+   display: block;
+ }
+
+
+
+
