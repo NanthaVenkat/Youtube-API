@@ -9,15 +9,14 @@ clickBtn.addEventListener("click", () => {
     const apiUrl = `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&key=${apiKey}&part=snippet,statistics`;
     console.log(fetch(apiUrl))
 
-  if (addedVideos.includes(videoId)) {
-      alert('This video is already added!');
-      return;
-  }
+    if (addedVideos.includes(videoId)) {
+        alert('This video is already added!');
+        return;
+    }
 
     fetch(apiUrl)
         .then((res) => res.json())
-        .then((msg) =>
-        {
+        .then((msg) => {
             const tableVal = document.getElementById("tbody");
             const videoData = msg.items[0];
             if (videoData) {
@@ -31,22 +30,22 @@ clickBtn.addEventListener("click", () => {
                     <td>${statistics.likeCount}</td>
                     <td>${statistics.commentCount}</td>
                     `;
-                    addedVideos.push(videoId);
+                addedVideos.push(videoId);
 
-                    document.getElementById('videoInfo').innerHTML = "";
-                    // console.log(getVideoId(videoLink));
+                document.getElementById('videoInfo').innerHTML = "";
+                // console.log(getVideoId(videoLink));
             } else {
                 document.getElementById('videoInfo').innerHTML = '<span>Error: Please check the video link.</span>';
             }
 
         })
         .catch(err => console.log(err));
-})     
+})
 
-        function getVideoId(url) {
-            const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-            const match = url.match(regExp);
+function getVideoId(url) {
+    const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regExp);
 
-            return match ? match[1] : false;
-        }
+    return match ? match[1] : false;
+}
 
